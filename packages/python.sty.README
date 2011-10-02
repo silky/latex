@@ -1,0 +1,32 @@
+python.sty was written by Martin R. Ehmsen, but is no longer
+available on his personal site, so I have decided to upload
+it here, and may make some changes to it.
+
+It can be used to write python code inside a LaTeX file, and
+then have the output included as part of the pdf!
+
+Sample LaTeX document showing it's effect:
+
+--------------------------------------------------------------
+\documentclass[11pt]{article}
+
+\usepackage{python}
+
+\begin{document}
+	Opening comments.
+
+	\begin{python}
+		# Must use spaces, not tabs.
+		def hello_latex (t):
+		    print 'Hello %s' % t
+
+		hello_latex('world')
+		print ' \[ x^2 + y^2 = z^2 \]'
+	\end{python}
+\end{document}
+--------------------------------------------------------------
+
+Each LaTeX segment is *independent*, so you can't define variables
+in one and reference them later. You can, however, write a kind of
+companion python file, and call appropriate functions from within
+it. Can be used in conjunction with, say, numpy.
